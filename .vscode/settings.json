@@ -1,0 +1,18 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/Users/f0nazj/Downloads/gson-2.8.2.jar"
+        ],
+        "exclude": [
+            "lib/gson-2.8.2.jar"
+        ]
+    },
+    "java.debug.settings.onBuildFailureProceed": true,
+    "commentTranslate.hover.enabled": true,
+    "commentTranslate.targetLanguage": "zh-TW",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+}
