@@ -1,0 +1,70 @@
+{
+    // 使用 IntelliSense 以得知可用的屬性。
+    // 暫留以檢視現有屬性的描述。
+    // 如需詳細資訊，請瀏覽: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TestSwing",
+            "request": "launch",
+            "mainClass": "inherit.son.TestSwing",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Text",
+            "request": "launch",
+            "mainClass": "animal.zoo.Text",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "gui.ui.App",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "inherit.son.Test",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Textone",
+            "request": "launch",
+            "mainClass": "ithemia.text.Textone",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Text(1)",
+            "request": "launch",
+            "mainClass": "math.formula.Text",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Gui",
+            "request": "launch",
+            "mainClass": "student.system.Gui",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Run",
+            "request": "launch",
+            "mainClass": "user.api.Run",
+            "projectName": "javacode_13f443b"
+        }
+    ]
+}

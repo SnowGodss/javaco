@@ -1,18 +1,31 @@
 {
-    "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin",
+    "java.home": "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home",
+            "default": true
+        }
+    ],
+    "sonarlint.pathToNodeExecutable": "/usr/local/bin/node",
     "java.project.referencedLibraries": {
-        "include": [
-            "lib/**/*.jar",
-            "/Users/f0nazj/Downloads/gson-2.8.2.jar"
-        ],
+        "include": [],
         "exclude": [
             "lib/gson-2.8.2.jar"
         ]
     },
     "java.debug.settings.onBuildFailureProceed": true,
-    "commentTranslate.hover.enabled": true,
+    "commentTranslate.hover.enabled": false,
     "commentTranslate.targetLanguage": "zh-TW",
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
+    "editor.formatOnSaveMode": "file",
+    "java.debug.settings.showLogicalStructure": false,
+    "java.debug.settings.showStaticVariables": false,
+    "cSpell.enabledFileTypes": {
+        "java": false
+    },
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "cSpell.languageSettings": [],
+    "cmake.configureSettings": {},
+    "json.schemas": []
 }
