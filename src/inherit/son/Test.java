@@ -1,65 +1,30 @@
 package inherit.son;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.TreeSet;
 
 public class Test {
     public static void main(String[] args) {
         /*
-         * HashMap練習1：Map集合案例-統計投票人數 需求： 某個班級80名學生, 現在需要組成秋遊活動, 班長提供了四個景點(A, B, C, D),
-         * 每個學生只能選擇一個景點, 請統計出最終哪個景點想去的人數最多
+         * 需求：請自行選擇比較器排序和自然排序兩種方法 要求：存入四個字符串, "c", "ab", "df", "qwer" 按照長度排序,
+         * 如果一樣長則按照首字母排序
          */
 
-        // 1.需要先讓同學投票
+        // 1.創建集合
+        TreeSet<String> ts = new TreeSet<>((String o1, String o2) -> {
+            // 按照長度排序
+            int i = o1.length() - o2.length();
+            // 如果一樣長則按照首字母排序
+            i = i == 0 ? o1.compareTo(o2) : i;
+            return i;
+        });
 
-        // 定義一個數組, 用來存儲4個景點
-        String[] arr = { "A", "B", "C", "D" };
+        // 2.添加元素(打印出來的結果是有序的)
+        ts.add("c");
+        ts.add("ab");
+        ts.add("df");
+        ts.add("qwer");
 
-        // 利用隨機數模擬80個同學的投票, 並把投票結果存儲起來
-        ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < 80; i++) {
-            int r = (int) (Math.random() * arr.length);
-            list.add(arr[r]);
-        }
-
-        // 2. 如果要統計的東西比較多, 不方便使用計數器思想
-        // 我們可以定義Map集合, 利用集合進行統計
-        HashMap<String, Integer> map = new HashMap<>();
-
-        for (String name : list) {
-            // 判斷當前的景點在map集合中是否存在
-            if (map.containsKey(name)) {
-                // 如果存在, 獲取出來
-                // map.get("A"); 會得到 對應的值也就是數字
-                int count = map.get(name);
-                // 對應的值+1
-                map.put(name, count + 1);
-            } else {
-                // 如果不存在, 直接存儲進去, 對應的值為1
-                map.put(name, 1);
-            }
-        }
-        for (String name : map.keySet()) {
-            System.out.println(name + " : " + map.get(name));
-
-        }
-        int max = 0;
-        Set<Map.Entry<String, Integer>> keys = map.entrySet();
-        for (Map.Entry<String, Integer> key : keys) {
-            int count = key.getValue();
-            if (count > max) {
-                max = count;
-            }
-        }
-        System.out.println(max);
-
-        for (Map.Entry<String, Integer> key : keys) {
-            int count = key.getValue();
-            if (count == max) {
-                System.out.println(key.getKey());
-            }
-        }
+        // 4. 打印集合
+        System.out.println(ts);
     }
 }
