@@ -24,6 +24,8 @@ public class Test {
             list.add(arr[r]);
         }
 
+        // 2. 如果要統計的東西比較多, 不方便使用計數器思想
+        // 我們可以定義Map集合, 利用集合進行統計
         HashMap<String, Integer> map = new HashMap<>();
 
         for (String name : list) {
@@ -54,13 +56,10 @@ public class Test {
         System.out.println(max);
 
         for (Map.Entry<String, Integer> key : keys) {
-            if (key.getValue() == max) {
-                System.out.println("最多的景點是 : " + key.getKey());
+            int count = key.getValue();
+            if (count == max) {
+                System.out.println(key.getKey());
             }
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
         }
     }
 }
