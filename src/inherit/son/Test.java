@@ -18,7 +18,7 @@ public class Test {
         String[] arr = { "A", "B", "C", "D" };
 
         // 利用隨機數模擬80個同學的投票, 並把投票結果存儲起來
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < 80; i++) {
             int r = (int) (Math.random() * arr.length);
             list.add(arr[r]);
