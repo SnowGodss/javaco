@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Text",
+            "request": "launch",
+            "mainClass": "inherit.son.Text",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "TestSwing",
             "request": "launch",
             "mainClass": "inherit.son.TestSwing",
