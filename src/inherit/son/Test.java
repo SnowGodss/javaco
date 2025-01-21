@@ -1,30 +1,23 @@
 package inherit.son;
 
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 public class Test {
     public static void main(String[] args) {
         /*
-         * 需求：請自行選擇比較器排序和自然排序兩種方法 要求：存入四個字符串, "c", "ab", "df", "qwer" 按照長度排序,
-         * 如果一樣長則按照首字母排序
+         * TreeMap基本應用2： 需求： 鍵：學生對象 值：籍貫 要求：按照學生年齡的升序排列, 年齡一樣按照姓名的字母排列, 同姓名同年齡視為同一個人
          */
 
-        // 1.創建集合
-        TreeSet<String> ts = new TreeSet<>((String o1, String o2) -> {
-            // 按照長度排序
-            int i = o1.length() - o2.length();
-            // 如果一樣長則按照首字母排序
-            i = i == 0 ? o1.compareTo(o2) : i;
-            return i;
-        });
+        // 1. 創建集合
+        TreeMap<Ye, String> tm = new TreeMap<>();
 
-        // 2.添加元素(打印出來的結果是有序的)
-        ts.add("c");
-        ts.add("ab");
-        ts.add("df");
-        ts.add("qwer");
+        // 2. 添加元素
+        tm.put(new Ye("小明", 19), "台北");
+        tm.put(new Ye("小明", 18), "北京");
+        tm.put(new Ye("小明", 19), "台南");
+        tm.put(new Ye("小亮", 18), "上海");
 
-        // 4. 打印集合
-        System.out.println(ts);
+        // 3. 打印集合
+        System.out.println(tm);
     }
 }

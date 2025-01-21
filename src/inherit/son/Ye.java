@@ -63,7 +63,8 @@ public class Ye implements Comparable<Ye> {
 
     @Override
     public int compareTo(Ye o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+        int i = this.getAge() - o.getAge();
+        i = i == 0 ? this.getName().compareTo(o.getName()) : i;
+        return i;
     }
 }
