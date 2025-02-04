@@ -1,23 +1,27 @@
 package inherit.son;
 
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Test {
     public static void main(String[] args) {
         /*
-         * TreeMap基本應用2： 需求： 鍵：學生對象 值：籍貫 要求：按照學生年齡的升序排列, 年齡一樣按照姓名的字母排列, 同姓名同年齡視為同一個人
+         * 自動點名器1： 班級裡有N個學生, 實現隨機點名器
          */
 
-        // 1. 創建集合
-        TreeMap<Ye, String> tm = new TreeMap<>();
+        // 1.創建集合
+        ArrayList<String> list = new ArrayList<>();
 
-        // 2. 添加元素
-        tm.put(new Ye("小明", 19), "台北");
-        tm.put(new Ye("小明", 18), "北京");
-        tm.put(new Ye("小明", 19), "台南");
-        tm.put(new Ye("小亮", 18), "上海");
+        // 2.批量添加元素
+        Collections.addAll(list, "小明", "小虎", "張三", "李四", "唐憎", "孫悟空");
 
-        // 3. 打印集合
-        System.out.println(tm);
+        // 3.隨機打亂元素
+        Collections.shuffle(list);
+
+        // 4. 取得第一個元素並取出
+        String name = list.get(0);
+
+        // 5. 打印元素
+        System.out.println(name);
     }
 }

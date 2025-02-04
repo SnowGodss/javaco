@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CollectionsTest",
+            "request": "launch",
+            "mainClass": "ithemia.text.CollectionsTest",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "TreeMapTest",
+            "request": "launch",
+            "mainClass": "ithemia.text.TreeMapTest",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "Text",
             "request": "launch",
             "mainClass": "inherit.son.Text",
