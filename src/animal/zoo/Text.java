@@ -1,31 +1,22 @@
 package animal.zoo;
 
-import java.util.TreeSet;
-
-public class Text{
+public class Text {
     public static void main(String[] args) {
-    /* 需求：請自行選擇比較器排序和自然排序兩種方法
-     * 要求：存入四個字符串, "c", "ab", "df", "qwer"
-     * 按照長度排序, 如果一樣長則按照首字母排序
-     */
+        /*
+         * 可變參數的練習： 假如需要定義一個方法求和, 該方法可以靈活的完成如下需求： 計算2個數據的和 計算3個數據的和 計算4個數據的和 計算5個數據的和
+         * 計算n個數據的和
+         */
+        int sum = getsum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        System.out.println(sum);
+    }
 
-    // 1.創建集合
-    TreeSet<String> ts = new TreeSet<>((String o1, String o2)->{
-            //按照長度排序
-            int i = o1.length() - o2.length();
-            //如果一樣長則按照首字母排序
-            i = i == 0 ? o1.compareTo(o2) : i;
-            return i;
+    // 底層可變參數就是一個數組
+    // 只不過不需要我們自己創建了, Java會幫我們創建好
+    public static int getsum(int... arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
         }
-    );
-
-    // 2.添加元素(打印出來的結果是有序的)
-        ts.add("c");
-        ts.add("ab");
-        ts.add("df");
-        ts.add("qwer");
-
-    //4. 打印集合
-        System.out.println(ts);
+        return sum;
     }
 }
