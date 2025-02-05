@@ -31,12 +31,10 @@ public class Test {
 
         // 5.判斷此時是從manlist中取出名字還是girllist中取出名字
         if (index == 1) {
-            // manlist
             Collections.shuffle(manlist);
             System.out.println(manlist);
             System.out.println(manlist.get(0));
         } else {
-            // girllist
             Collections.shuffle(girllist);
             System.out.println(girllist);
             System.out.println(girllist.get(0));
