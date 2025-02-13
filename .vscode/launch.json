@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PokerGame",
+            "request": "launch",
+            "mainClass": "big.two.PokerGame",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "Test",
             "request": "launch",
             "mainClass": "big.two.Test",
