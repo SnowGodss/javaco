@@ -7,6 +7,9 @@ public class Common {
     // 此類為尚未學習部分, 所以以下部分為拷貝過來的尚未自己寫
     // 移動牌(有移動的動畫效果)
     public static void move(Poker poker, Point from, Point to) {
+        if (from == null) {
+            from = new Point(0, 0); // 🛠️ 默认从 (0,0) 开始
+        }
         if (to.x != from.x) {
             double k = (1.0) * (to.y - from.y) / (to.x - from.x);
             double b = to.y - to.x * k;

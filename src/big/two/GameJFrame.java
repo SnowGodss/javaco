@@ -2,10 +2,13 @@ package big.two;
 
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -55,15 +58,14 @@ public class GameJFrame extends JFrame implements ActionListener {
         initJFrame();
         // 添加組件
         initView();
+        repaint();
         // 介面顯示
         // 先展示介面在發牌, 因為發牌裡面有動畫, 介面不展示出來, 動畫無法展示
         this.setVisible(true);
 
         // 初始化牌
         // 準備牌, 洗牌, 發牌, 排序
-
-        // 打牌之前的準備工作
-
+        initCard();
     }
 
     // 添加組件
@@ -76,7 +78,7 @@ public class GameJFrame extends JFrame implements ActionListener {
         // //添加點擊事件
         outCardBut.addActionListener(this);
         // //設置隱藏
-        outCardBut.setVisible(false);
+        outCardBut.setVisible(true);
         // //添加到數組當中統一管理
         publishCard[0] = outCardBut;
         // //添加到介面當中
@@ -90,7 +92,7 @@ public class GameJFrame extends JFrame implements ActionListener {
         // //添加點擊事件
         passCardBut.addActionListener(this);
         // //設置隱藏
-        passCardBut.setVisible(false);
+        passCardBut.setVisible(true);
         // //添加到數組當中統一管理
         publishCard[1] = passCardBut;
         // //添加到介面當中
@@ -107,7 +109,7 @@ public class GameJFrame extends JFrame implements ActionListener {
             // 不可點擊
             time[i].setEditable(false);
             // 隱藏
-            time[i].setVisible(false);
+            time[i].setVisible(true);
             container.add(time[i]);
         }
         // 設置位置寬高
@@ -120,9 +122,9 @@ public class GameJFrame extends JFrame implements ActionListener {
         // 設置圖片
         dizhu.setIcon(new ImageIcon("src/big/two/images/LOGO.png"));
         // 設置隱藏
-        dizhu.setVisible(false);
+        dizhu.setVisible(true);
         // 設置位置
-        dizhu.setSize(40, 40);
+        dizhu.setBounds(250, 370, 40, 40);
         // 加入到介面當中
         container.add(dizhu);
     }
@@ -146,11 +148,106 @@ public class GameJFrame extends JFrame implements ActionListener {
         // 設置背景顏色
         container.setBackground(Color.LIGHT_GRAY);
     }
-    // 初始化牌()
+
+    // 初始化牌(準備牌, 洗牌, 發牌, 排序)
+    public void initCard() {
+        // 準備牌
+        // 把所有的牌加入到, pokerList中
+        for (int i = 1; i <= 4; i++) {
+            for (int j = 1; j <= 13; j++) {
+                Poker poker = new Poker(i + "-" + j, false);
+                pokerList.add(poker);
+                container.add(poker);
+            }
+        }
+        // 洗牌
+        Collections.shuffle(pokerList);
+
+        // 準備三個玩家集合, 並把三個小集合放到大集合中方便管理
+        ArrayList<Poker> pleyer0 = new ArrayList<>();
+        ArrayList<Poker> pleyer1 = new ArrayList<>();
+        ArrayList<Poker> pleyer2 = new ArrayList<>();
+
+        // 發牌
+        for (int i = 0; i < pokerList.size(); i++) {
+            Poker poker = pokerList.get(i);
+            if (i == pokerList.size()) {
+                lordList.add(poker);
+            }
+            if (i % 3 == 0) {
+                Common.move(poker, poker.getLocation(), new Point(50, 60 + i * 5));
+                pleyer0.add(poker);
+            } else if (i % 3 == 1) {
+                Common.move(poker, poker.getLocation(), new Point(180 + i * 7, 450));
+                pleyer1.add(poker);
+            } else {
+                Common.move(poker, poker.getLocation(), new Point(700, 60 + i * 5));
+                pleyer2.add(poker);
+            }
+            playerList.add(pleyer0);
+            playerList.add(pleyer1);
+            playerList.add(pleyer2);
+
+            container.setComponentZOrder(poker, 0);
+        }
+
+        // 排序
+        for (int i = 0; i < 3; i++) {
+            order(playerList.get(i));
+            Common.rePosition(this, playerList.get(i), i);
+        }
+    }
+
+    public void order(ArrayList<Poker> list) {
+        Collections.sort(list, new Comparator<Poker>() {
+            @Override
+            public int compare(Poker o1, Poker o2) {
+                // TODO Auto-generated method stub
+                int color1 = Integer.parseInt(o1.getName().substring(0, 1));
+                int value1 = getValue(o1);
+
+                int color2 = Integer.parseInt(o2.getName().substring(0, 1));
+                int value2 = getValue(o2);
+
+                int flag = value1 - value2;
+
+                if (flag == 0) {
+                    return color1 - color2;
+                } else {
+                    return flag;
+                }
+            }
+        });
+    }
+
+    public int getValue(Poker poker) {
+        String name = poker.getName();
+
+        int value = Integer.parseInt(name.substring(2));
+
+        if (value == 1) {
+            return value += 13;
+        }
+        if (value == 2) {
+            return value += 13;
+        }
+        return value;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        Object obj = e.getSource();
+        if (obj == publishCard[0]) {
+            // 表是出牌的按鈕被點擊
+            // 呼叫出牌的方法
+            // outCard();
+            System.out.println("出牌");
+        } else if (obj == publishCard[1]) {
+            // 表是過牌的按鈕被點擊
+            // 呼叫過牌的方法
+            // passCard();
+            System.out.println("過牌");
+        }
     }
 }

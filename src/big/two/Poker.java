@@ -45,7 +45,7 @@ public class Poker extends JLabel implements MouseListener {
     // 顯示正面
     public void turnFront() {
         // 給牌設置正面
-        this.setIcon(new ImageIcon());
+        this.setIcon(new ImageIcon("src/big/two/images/PokerCard/" + name + ".png"));
         // 修改成員變量(up變成是指牌的正反面)
         this.up = true;
     }
@@ -53,7 +53,7 @@ public class Poker extends JLabel implements MouseListener {
     // 顯示反面
     public void turnBack() {
         // 給牌設置反面
-        this.setIcon(new ImageIcon());
+        this.setIcon(new ImageIcon("src/big/two/images/PokerCard/green_back.png"));
         // 修改成員變量(up變成是指牌的正反面)
         this.up = false;
     }
