@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,6 +15,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class LoginJFrame extends JFrame implements MouseListener {
+    static ArrayList<User> list = new ArrayList<>();
+    static {
+        list.add(new User("admin", "123456"));
+    }
     // 登入按鈕
     JButton login = new JButton();
     // 註冊按鈕
@@ -170,10 +175,29 @@ public class LoginJFrame extends JFrame implements MouseListener {
             String passwordInput = userpassword.getText();
 
             // 獲取用戶的驗證碼
+            String codeInput = code.getText();
             // 判斷驗證碼是否為空
+            if (codeInput.length() == 0) {
+                showJDialog("驗證碼不能為空");
+                return;
+            }
             // 判斷用戶名和密碼是否為空
+            if (usernameInput.length() == 0 || passwordInput.length() == 0) {
+                showJDialog("用戶名和密碼不能為空");
+                return;
+            }
             // 判斷驗證碼是否正確
+            if (!codeInput.equals(rightCode.getText())) {
+                showJDialog("驗證碼不正確");
+                return;
+            }
             // 把用戶名和密碼幫裝成一個對象, 然後直接判斷這個對象有沒有在集合當中, 有的話就登錄成功, 反之就登錄失敗
+            User user = new User(usernameInput, passwordInput);
+            if (list.contains(user)) {
+                new GameJFrame();
+            } else {
+                showJDialog("登錄失敗");
+            }
         } else if (obj == register) {
             System.out.println("點擊了註冊按鈕");
         } else if (obj == codeButton) {
