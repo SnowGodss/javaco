@@ -45,7 +45,7 @@ public class Poker extends JLabel implements MouseListener {
     // 顯示正面
     public void turnFront() {
         // 給牌設置正面
-        this.setIcon(new ImageIcon("src/big/two/images/PokerCard/" + name + ".png"));
+        this.setIcon(new ImageIcon("src/big/two/images/PokerCard/" + name + ".jpg"));
         // 修改成員變量(up變成是指牌的正反面)
         this.up = true;
     }
@@ -53,7 +53,7 @@ public class Poker extends JLabel implements MouseListener {
     // 顯示反面
     public void turnBack() {
         // 給牌設置反面
-        this.setIcon(new ImageIcon("src/big/two/images/PokerCard/green_back.png"));
+        this.setIcon(new ImageIcon("src/big/two/images/PokerCard/green_back.jpg"));
         // 修改成員變量(up變成是指牌的正反面)
         this.up = false;
     }
@@ -63,7 +63,7 @@ public class Poker extends JLabel implements MouseListener {
         // TODO Auto-generated method stub
         // 判斷當前的牌是否可以被點擊
         if (canClick) {
-            // 表是牌的位移像素
+            // 表示牌的位移像素
             int step = 0;
             // 判斷牌的狀態是升起還是放下
             if (clicked) {

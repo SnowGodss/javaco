@@ -78,7 +78,7 @@ public class GameJFrame extends JFrame implements ActionListener {
         // //添加點擊事件
         outCardBut.addActionListener(this);
         // //設置隱藏
-        outCardBut.setVisible(true);
+        outCardBut.setVisible(false);
         // //添加到數組當中統一管理
         publishCard[0] = outCardBut;
         // //添加到介面當中
@@ -92,7 +92,7 @@ public class GameJFrame extends JFrame implements ActionListener {
         // //添加點擊事件
         passCardBut.addActionListener(this);
         // //設置隱藏
-        passCardBut.setVisible(true);
+        passCardBut.setVisible(false);
         // //添加到數組當中統一管理
         publishCard[1] = passCardBut;
         // //添加到介面當中
@@ -109,7 +109,7 @@ public class GameJFrame extends JFrame implements ActionListener {
             // 不可點擊
             time[i].setEditable(false);
             // 隱藏
-            time[i].setVisible(true);
+            time[i].setVisible(false);
             container.add(time[i]);
         }
         // 設置位置寬高
@@ -122,7 +122,7 @@ public class GameJFrame extends JFrame implements ActionListener {
         // 設置圖片
         dizhu.setIcon(new ImageIcon("src/big/two/images/LOGO.png"));
         // 設置隱藏
-        dizhu.setVisible(true);
+        dizhu.setVisible(false);
         // 設置位置
         dizhu.setBounds(250, 370, 40, 40);
         // 加入到介面當中
@@ -175,19 +175,20 @@ public class GameJFrame extends JFrame implements ActionListener {
                 lordList.add(poker);
             }
             if (i % 3 == 0) {
-                Common.move(poker, poker.getLocation(), new Point(50, 60 + i * 5));
+                Common.move(poker, poker.getLocation(), new Point(30, 60 + i * 6));
                 pleyer0.add(poker);
             } else if (i % 3 == 1) {
                 Common.move(poker, poker.getLocation(), new Point(180 + i * 7, 450));
                 pleyer1.add(poker);
             } else {
-                Common.move(poker, poker.getLocation(), new Point(700, 60 + i * 5));
+                Common.move(poker, poker.getLocation(), new Point(750, 60 + i * 6));
                 pleyer2.add(poker);
             }
             playerList.add(pleyer0);
             playerList.add(pleyer1);
             playerList.add(pleyer2);
 
+            // 設置順序
             container.setComponentZOrder(poker, 0);
         }
 
