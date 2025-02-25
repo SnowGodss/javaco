@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Text1",
+            "request": "launch",
+            "mainClass": "animal.zoo.Text1",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "PokerGame",
             "request": "launch",
             "mainClass": "big.two.PokerGame",
