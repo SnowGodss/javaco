@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StreamText",
+            "request": "launch",
+            "mainClass": "ithemia.text.StreamText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "Text1",
             "request": "launch",
             "mainClass": "animal.zoo.Text1",
