@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ep2_2",
+            "request": "launch",
+            "mainClass": "school.programming.Ep2_2",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Ep2x2",
+            "request": "launch",
+            "mainClass": "school.programming.Ep2x2",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Ep2",
+            "request": "launch",
+            "mainClass": "school.programming.Ep2",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Ep1",
+            "request": "launch",
+            "mainClass": "school.programming.Ep1",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "StreamTextMid",
+            "request": "launch",
+            "mainClass": "ithemia.text.StreamTextMid",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "StreamText",
             "request": "launch",
             "mainClass": "ithemia.text.StreamText",

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.stream.Stream;
 
-public class StreamText {
+public class StreamTextStar {
     public static void main(String[] args) {
         /*
          * Stream流的使用步驟 1.先得到一條Stream流(流水線), 並把數據放上去 獲取方式 方法名。 說明 單列集合 default Stream<E>
