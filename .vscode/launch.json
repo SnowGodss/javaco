@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "topic9",
+            "request": "launch",
+            "mainClass": "leetcode.topic.topic9",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "topic1523",
+            "request": "launch",
+            "mainClass": "leetcode.topic.topic1523",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "topic1295",
+            "request": "launch",
+            "mainClass": "leetcode.topic.topic1295",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Text2",
+            "request": "launch",
+            "mainClass": "animal.zoo.Text2",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "StreamTextEnd",
             "request": "launch",
             "mainClass": "ithemia.text.StreamTextEnd",
