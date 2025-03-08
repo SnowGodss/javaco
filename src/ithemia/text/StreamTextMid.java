@@ -50,7 +50,7 @@ public class StreamTextMid {
 
         /*
          * list.stream().map(new Function<String, Integer>() {
-         * 
+         *
          * @Override public Integer apply(String s) { String[] arr = s.split("-");
          * String ageString = arr[1]; int age = Integer.parseInt(ageString); return age;
          * } }).forEach(s -> System.out.println(s));

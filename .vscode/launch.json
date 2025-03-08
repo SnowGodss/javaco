@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StreamTextEnd",
+            "request": "launch",
+            "mainClass": "ithemia.text.StreamTextEnd",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "topic1",
+            "request": "launch",
+            "mainClass": "leetcode.topic.topic1",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "topic1",
+            "request": "launch",
+            "mainClass": "leetcode.topic1",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "Ep2_2",
             "request": "launch",
             "mainClass": "school.programming.Ep2_2",
