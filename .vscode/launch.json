@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Text3",
+            "request": "launch",
+            "mainClass": "animal.zoo.Text3",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "topic9",
             "request": "launch",
             "mainClass": "leetcode.topic.topic9",
