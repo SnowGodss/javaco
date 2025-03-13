@@ -2,18 +2,19 @@ package animal.zoo;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.stream.Collectors;
 
 public class Text2 {
     public static void main(String[] args) {
+        /*
+         * 方法引用練習：練習一 格式：對象::成員方法 1.其他類：其他類對象::方法名 2.本類：this::方法名 3.父類：super::方法名
+         *
+         * 需求：集合中有一些名字, 按照要求過濾數據 數據："張無忌", "周正落", "趙敏", "張強", "張三丰" 要求：只要以張開頭,
+         * 並且名字是三個字的(需使用方法引用)
+         */
         ArrayList<String> list = new ArrayList<>();
-        Collections.addAll(list, "張無忌, 23", "周正落, 24", "造敏, 15", "張三丰, 30", "張翠山, 60", "張良, 90");
-        // 首先將逗號分隔成陣列, 再過篩選出年齡大於等於24的(因為年齡是字串, 所以要轉成數字)
-        // 注意: 這是將鍵值對換成Map時, 若有同名的鍵, 後面的值會覆掉前面的值, 這是希望同名的鍵表示同一個人多個年齡時, 取最後的年齡
-        // 若不希望這樣, 可以改用Collectors.groupingBy() 來分組, 再用groupingByValues() 取出每個分組的最後一個元素
-        list.stream().map(s -> s.split(", ")).filter(s -> Integer.parseInt(s[1]) >= 24)
-                // 然後將以下的元素流換成Map, 鍵為名字, 值為年齡, 最後輸出結果
-                .collect(Collectors.toMap(s -> s[0], s -> Integer.parseInt(s[1])))
-                .forEach((name, age) -> System.out.println(name + " - " + age));
+        Collections.addAll(list, "張無忌", "周正落", "造敏", "張三丰");
+        Textson jdg = new Textson();
+        list.stream().filter(jdg::stringJudge).forEach(s -> System.out.println(s));
+
     }
 }

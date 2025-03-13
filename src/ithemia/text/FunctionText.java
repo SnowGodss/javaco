@@ -35,7 +35,7 @@ public class FunctionText {
         // 3.被引用方法的形參返回值需要跟抽象方法的形參和返回值保持一致
         // 4.被引用方法的功能需要滿足當前的要求
 
-        // 表示引用FunctionText類裡面的subtraction方法
+        // ：：表示引用FunctionText類裡面的subtraction方法
         // 把這個方法當作抽象方法的方法體
 
         Arrays.sort(arr, FunctionText::subtraction);
