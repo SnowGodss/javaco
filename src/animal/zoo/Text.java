@@ -1,18 +1,43 @@
 package animal.zoo;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Text {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Text extends JFrame implements ActionListener {
+
+    private JButton button;
+
+    public Text() {
+        // 创建按钮
+        button = new JButton("Click");
+        button.setBounds(150, 100, 100, 30);
+
+        // ✅ 旧写法：使用 this 绑定事件监听器
+        button.addActionListener(this);
+
+        // 添加按钮
+        add(button);
+
+        // 设置窗口
+        setTitle("旧方法示例");
+        setSize(400, 300);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    // ✅ 必须重写 ActionListener 的方法
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button) {
+            System.out.println("Button clicked (旧方法)!");
+        }
+    }
+
     public static void main(String[] args) {
-        /*
-         * 方法引用練習：引用靜態方法 格式：類名::靜態方法 範例：Integer::parseInt
-         *
-         * 練習： 集合中有以下數字, 要求把他們都變成int類型 "1", "2", "3" ,"4", "5"
-         */
-        ArrayList<String> list = new ArrayList<>();
-        Collections.addAll(list, "1", "2", "3", "4", "5");
-        // 引用的方法是 JAVA中的：parseInt
-        list.stream().map(Integer::parseInt).forEach(s -> System.out.println(s));
+        new Text(); // 创建窗口
     }
 }

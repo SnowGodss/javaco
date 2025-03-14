@@ -1,20 +1,39 @@
 package animal.zoo;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.awt.event.ActionEvent;
 
-public class Text2 {
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class Text2 extends JFrame {
+
+    private JButton button;
+
+    public Text2() {
+        // 创建按钮
+        button = new JButton("Click");
+        button.setBounds(150, 100, 100, 30);
+
+        // ✅ 新写法：使用方法引用绑定事件
+        button.addActionListener(this::onClick);
+
+        // 添加按钮
+        add(button);
+
+        // 设置窗口
+        setTitle("新方法示例");
+        setSize(400, 300);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    // ✅ 定义方法（无需重写接口方法）
+    private void onClick(ActionEvent e) {
+        System.out.println("Button clicked (新方法)!");
+    }
+
     public static void main(String[] args) {
-        /*
-         * 方法引用練習：練習一 格式：對象::成員方法 1.其他類：其他類對象::方法名 2.本類：this::方法名 3.父類：super::方法名
-         *
-         * 需求：集合中有一些名字, 按照要求過濾數據 數據："張無忌", "周正落", "趙敏", "張強", "張三丰" 要求：只要以張開頭,
-         * 並且名字是三個字的(需使用方法引用)
-         */
-        ArrayList<String> list = new ArrayList<>();
-        Collections.addAll(list, "張無忌", "周正落", "造敏", "張三丰");
-        Textson jdg = new Textson();
-        list.stream().filter(jdg::stringJudge).forEach(s -> System.out.println(s));
-
+        new Text2(); // 创建窗口
     }
 }

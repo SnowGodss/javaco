@@ -5,7 +5,6 @@ import java.awt.Container;
 import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,11 +15,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class GameJFrame extends JFrame implements ActionListener {
+public class GameJFrame extends JFrame {
     // 獲取介面的隱藏容器, 達到統一獲取, 後面就可以直接用了
     public static Container container = null;
-    // 管理出牌和Pass兩個按鈕
-    JButton[] publishCard = new JButton[2];
+    // 創建出牌的按鈕
+    JButton outCardBut = new JButton("出牌");
+    // 創建出牌的按鈕
+    JButton passCardBut = new JButton("Pass");
     // 遊戲介面中大老二的圖標
     JLabel dizhu;
 
@@ -71,30 +72,23 @@ public class GameJFrame extends JFrame implements ActionListener {
     // 添加組件
     public void initView() {
         // 1.創建出牌的按鈕
-        // //創建出牌的按鈕
-        JButton outCardBut = new JButton("出牌");
+
         // //設置位置
         outCardBut.setBounds(320, 400, 60, 20);
         // //添加點擊事件
-        outCardBut.addActionListener(this);
+        outCardBut.addActionListener(this::outCard);
         // //設置隱藏
         outCardBut.setVisible(false);
-        // //添加到數組當中統一管理
-        publishCard[0] = outCardBut;
         // //添加到介面當中
         container.add(outCardBut);
 
         // 2.創建Pass的按鈕
-        // //創建出牌的按鈕
-        JButton passCardBut = new JButton("Pass");
         // //設置位置
         passCardBut.setBounds(420, 400, 75, 20);
         // //添加點擊事件
-        passCardBut.addActionListener(this);
+        passCardBut.addActionListener(this::passCard);
         // //設置隱藏
         passCardBut.setVisible(false);
-        // //添加到數組當中統一管理
-        publishCard[1] = passCardBut;
         // //添加到介面當中
         container.add(passCardBut);
 
@@ -235,20 +229,11 @@ public class GameJFrame extends JFrame implements ActionListener {
         return value;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        Object obj = e.getSource();
-        if (obj == publishCard[0]) {
-            // 表是出牌的按鈕被點擊
-            // 呼叫出牌的方法
-            // outCard();
-            System.out.println("出牌");
-        } else if (obj == publishCard[1]) {
-            // 表是過牌的按鈕被點擊
-            // 呼叫過牌的方法
-            // passCard();
-            System.out.println("過牌");
-        }
+    public void outCard(ActionEvent e) {
+        System.out.println("出牌");
+    }
+
+    public void passCard(ActionEvent e) {
+        System.out.println("過牌");
     }
 }
