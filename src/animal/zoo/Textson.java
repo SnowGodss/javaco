@@ -6,7 +6,7 @@ public class Textson {
 
     // ####重點部分####
     public Textson(String str) {
-        String[] arr = str.split(", ");
+        String[] arr = str.split(",");
         this.name = arr[0];
         this.age = Integer.parseInt(arr[1]);
     }
@@ -34,6 +34,6 @@ public class Textson {
 
     @Override
     public String toString() {
-        return "Textson [name=" + name + ", age=" + age + "]";
+        return name + "-" + age;
     }
 }
