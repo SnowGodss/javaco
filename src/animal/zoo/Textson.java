@@ -29,7 +29,11 @@ public class Textson {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age < 18 || age > 40) {
+            throw new RuntimeException("年齡必須在 18 and 40 之間");
+        } else {
+            this.age = age;
+        }
     }
 
     @Override

@@ -17,7 +17,7 @@
     "java.debug.settings.onBuildFailureProceed": true,
     "commentTranslate.hover.enabled": false,
     "commentTranslate.targetLanguage": "zh-TW",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.formatOnSaveMode": "file",
     "java.debug.settings.showLogicalStructure": false,
     "java.debug.settings.showStaticVariables": false,
@@ -27,5 +27,6 @@
     "java.format.settings.url": ".vscode/java-formatter.xml",
     "cSpell.languageSettings": [],
     "cmake.configureSettings": {},
-    "json.schemas": []
+    "json.schemas": [],
+    "files.autoSave": "afterDelay"
 }
