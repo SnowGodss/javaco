@@ -1,16 +1,23 @@
 package animal.zoo;
 
 public class Text {
-    // 異常：
-    // 作用一：異常是用來查詢bug的關鍵參考訊息
-    // 作用二：異常可以作為方法內部的一種特殊返回值, 以便通知調用者底層得執行者
+    // Throwable 的成員方法
+    // 方法名。                                  說明
+    // public String getMessage()               返回此throwable 的詳細訊息字符串
+    // public String toString()                返回此拋出的簡短描述
+    // public void printStackTrace()           把異常的錯誤訊息輸出在控制台
     public static void main(String[] args) {
-        // 1.創建學生對象
-        Textson t1 = new Textson("張無忌", 23);
-        // 2.年齡：同學(18 ~ 40)
-        t1.setAge(50);// 就知道了賦值失敗
-                      // 選擇一：自己悄悄處理
-                      // 選擇二：抛出異常
-        /* throw new RuntimeException("年齡必須在 18 and 40 之間"); */
+        // 1.創建數組
+        int[] arr = { 1, 2, 3, 4, 5 };
+
+        // 2.使用 try-catch 來處理異常
+        try {
+            System.out.println(arr[10]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            String message = e.getMessage();
+            System.out.println(message);
+        }
+
+        System.out.println("看看我執行了沒");
     }
 }

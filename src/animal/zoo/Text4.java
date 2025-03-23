@@ -1,25 +1,25 @@
 package animal.zoo;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Text4 {
-    public static void main(String[] args) {
-        // 方法引用綜合小練習：練習三
-        // 需求：創建集合添加學生對象, 學生對象屬性：name, age
-        // 把姓名和年齡拼接成: 張三-23的字符串, 並放到數組當中(使用方法引用)
+    // 靈魂四問之四：
+    // 如果try中遇到問題, 那try下面的其他代碼還會執行嗎
 
-        // 1.創建集合
-        ArrayList<Textson> list = new ArrayList<>();
-        // 2.將信息添加到集合中
-        list.add(new Textson("張無忌", 23));
-        list.add(new Textson("周正落", 15));
-        list.add(new Textson("趙敏", 20));
-        list.add(new Textson("張強", 30));
-        list.add(new Textson("張三丰", 60));
-        list.add(new Textson("張翠山", 90));
-        // 把姓名和年齡拼接成: 張三-23的字符串, 並放到數組當中
-        String[] arr = list.stream().map(Textson::toString).toArray(String[]::new);
-        System.out.println(Arrays.toString(arr));
+    // 答：不會
+    public static void main(String[] args) {
+        // 1.創建數組
+        int[] arr = { 1, 2, 3, 4, 5 };
+
+        // 2.使用 try-catch 來處理異常
+        // 最後會打印：
+        // 沒有這個數組
+        try {
+            // 3. 判斷代碼是否有異常
+            // 該代碼有異常 跳到catch裡面
+            System.out.println(arr[5]);
+            // 上面代碼已經出現了異常 所以不會判斷到這裡
+            System.out.println("看看我這行執行了嗎");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("沒有這個數組");
+        }
     }
 }
