@@ -1,23 +1,41 @@
 package animal.zoo;
 
 public class Text {
-    // Throwable 的成員方法
-    // 方法名。                                  說明
-    // public String getMessage()               返回此throwable 的詳細訊息字符串
-    // public String toString()                返回此拋出的簡短描述
-    // public void printStackTrace()           把異常的錯誤訊息輸出在控制台
+    // throws ：寫在方法益處, 表示聲明一個異常, 告訴調用者, 使用本方法可能會有哪些異常把異常的錯誤訊息輸出在控制台
+    // throw ：注意：寫在方法內, 結束方法, 手動拋出異常對象, 交給調用者, 方法下面的代
+
+    //練習：創建一個數組找出最大值
     public static void main(String[] args) {
         // 1.創建數組
-        int[] arr = { 1, 2, 3, 4, 5 };
-
-        // 2.使用 try-catch 來處理異常
+        int[] arr = null;
         try {
-            System.out.println(arr[10]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            String message = e.getMessage();
-            System.out.println(message);
+            System.out.println(max(arr));
+        }  catch (NullPointerException e) {
+            System.out.println("數組不能為空1");
+        }   catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("數組長度不能為0 1");
+        }
+        System.out.println("看看我執行了嗎？");
+        
+    }
+    public static int max(int[] arr) {
+        if (arr == null){
+            // 手動創建一個異常對象, 並把這個異常交給調用者處理
+            // 此時方法就會結束, 下面的代碼不會在執行
+            throw new NullPointerException("數組不能為空 2");
         }
 
-        System.out.println("看看我執行了沒");
+        if (arr.length == 0){
+            // 手動創建一個異常對象, 並把這個異常交給調用者處理
+            // 此時方法就會結束, 下面的代碼不會在執行
+            throw new ArrayIndexOutOfBoundsException("數組長度不能為0 2");
+        }
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
     }
 }
