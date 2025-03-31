@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FileText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "Ep3",
             "request": "launch",
             "mainClass": "school.programming.Ep3",
