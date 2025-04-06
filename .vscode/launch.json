@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FileCreateDeleteText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileCreateDeleteText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "FileGetText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileGetText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "FileTwoText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileTwoText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Text",
+            "request": "launch",
+            "mainClass": "school.programming.Text",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "FileText",
             "request": "launch",
             "mainClass": "ithemia.text.FileText",

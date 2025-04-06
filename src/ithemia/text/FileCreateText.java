@@ -2,7 +2,7 @@ package ithemia.text;
 
 import java.io.File;
 
-public class FileText {
+public class FileCreateText {
     public static void main(String[] args){
         // File
         // 方法名。                                      說明
