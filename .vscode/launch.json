@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FileListText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileListText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "FileTraversalText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileTraversalText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "FileCreateDeleteText",
             "request": "launch",
             "mainClass": "ithemia.text.FileCreateDeleteText",
