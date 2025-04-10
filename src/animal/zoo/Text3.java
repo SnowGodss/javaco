@@ -1,33 +1,39 @@
 package animal.zoo;
 
+import java.io.File;
+
 public class Text3 {
-    // 靈魂四問之三：
-    // 如果try中遇到的問題沒有被捕獲, 怎麼執行
+    // File練習3：File相關的API的練習題
+    // 需求：找到電腦裡所有已.mp3結尾的音樂
+    // (暫時不考慮子文件夾)
+    // /Users/f0nazj/Text/bbb
+    // /Users/f0nazj/Text/ccc
+    // /Users/f0nazj/Text/fff
+    // /Users/f0nazj/Text/ggg
+    // /Users/f0nazj/Text/ggg/aaa
+    // /Users/f0nazj/Text/ggg/aaa/bbb (音樂放這裡)
 
-    // 答：會報錯, 有異常的代碼會判斷 catch 中有沒有可以接收該異常的代碼 沒有就會報錯
-    // 例如: System.out.println(arr[5]); //ArrayIndexOutOfBoundsException e
-    // 因為 catch (NullPointerException e) 中沒有可以接收該異常的代碼(因為他們不是父子關係), 所以報錯
-
-    // 解決辦法：
-    // 1.在 catch 中加上父類別的異常, 這樣就可以接收該異常了
-    // 2. 也可以使用多重 catch 來處理多種異常
-
-    // 注意: 如果我們要捕獲多個異常, 這些異常中存在父子關係的話, 那麼父類一定要寫在下面
-    // 如果寫在上面, 下面的異常判斷會報錯
     public static void main(String[] args) {
-        // 1.創建數組
-        int[] arr = { 1, 2, 3, 4, 5 };
+        // 1.創建查找位置 (暫定設在Text文件夾中)
+        File rootDir = new File("/Users/f0nazj/Text");
+        // 2.調用方法查找mp3文件
+        findMp3Files(rootDir);
+    }
 
-        // 2.使用 try-catch 來處理異常
-        // 最後會打印 5
-        try {
-            // 3. 如果這裡面代碼沒問題 會執行並且不會執行catch的內容
-            System.out.println(arr[5]); // ArrayIndexOutOfBoundsException e
-        } catch (NullPointerException e) {
-            System.out.println("沒有這個數組");
-            // 這裡也可以使用 | 來接收多個異常
-        } catch (ArrayIndexOutOfBoundsException | ArithmeticException e) {
-            System.out.println("這個是正確的錯誤");
+    private static void findMp3Files(File dir) {
+        // 3.遍歷文件夾中的每一個文件
+            for (File s : dir.listFiles()) {
+                // 如果是文件夾就繼續遍歷
+                if(s.isDirectory()){
+                    // 4.如果是文件夾就把該路徑重新遞回到方法中
+                    findMp3Files(s);
+                }else{
+                    // 5.如果是文件就判斷文件結尾是否是.mp3
+                    if (s.getName().endsWith(".mp3")){
+                        // 6.如果是就打印該文件的絕對路徑
+                        System.out.println(s.getAbsolutePath());
+                    }
+                }
+            }
         }
     }
-}

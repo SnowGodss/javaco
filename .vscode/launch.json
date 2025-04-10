@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Text5",
+            "request": "launch",
+            "mainClass": "animal.zoo.Text5",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "FileListText",
             "request": "launch",
             "mainClass": "ithemia.text.FileListText",

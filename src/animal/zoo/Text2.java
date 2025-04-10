@@ -1,33 +1,37 @@
 package animal.zoo;
 
+import java.io.File;
+
 public class Text2 {
-    // 靈魂四問之二：
-    // 如果try中可能遇到多個問題, 怎麼執行
-
-    // 答：當出現第一個問題的時候 下面的錯誤代碼就不會繼續判斷了, 會直接執行catch裡面的內容
-
-    // 題外話：出現問題時, 前面如果有正確的代碼還是會執行 直到遇到問題
+    // File練習2：File相關的API的練習題
+    // 需求：定義一個方法找某一個文件夾中, 是否有以.mp3結尾的音樂
+    // (暫時不考慮子文件夾)
+    // /Users/f0nazj/Text/bbb
+    // /Users/f0nazj/Text/ccc
+    // /Users/f0nazj/Text/fff
+    // /Users/f0nazj/Text/ggg (放在這裡面 但沒有放在子文件夾中)
 
     public static void main(String[] args) {
-
-        // 1. 創建數組
-        int[] arr = { 1, 2, 3, 4, 5 };
-        // 2.使用 try-catch 來處理異常
-        // 最後會打印：
-        // 2
-        // 沒有這個數組
-        // 看看我執行了沒
-        try {
-            // 3.判斷代碼是否有異常
-            // 該行代碼沒問題 會打印 2
-            System.out.println(arr[1]);
-            // 該行代碼有問題 會跳到 catch裡面
-            System.out.println(arr[8]);
-            // 上面代碼已經出現了異常 所以不會判斷到這裡
-            System.out.println(arr[1]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("沒有這個數組");
+        // 呼叫方法判斷是否mp3有在裡面
+        System.out.println(findMusic("/Users/f0nazj/Text/bbb"));
+        System.out.println(findMusic("/Users/f0nazj/Text/ccc"));
+        System.out.println(findMusic("/Users/f0nazj/Text/fff"));
+        System.out.println(findMusic("/Users/f0nazj/Text/ggg"));
+    }
+    public static Boolean findMusic(String path){
+        // 1.創建文件位置
+        File f1 = new File(path);
+        // 2.獲取文件夾中的每一個文件
+        String[] list = f1.list();
+        // 3.遍歷每一個文件
+        for (String s : list) {
+            // 判斷文件結尾是否是.mp3
+            if (s.endsWith(".mp3")){
+                // 如果是就返回true
+                return true;
+            }
         }
-        System.out.println("看看我執行了沒");
+        // 如果都不是就返回false
+        return false;
     }
 }

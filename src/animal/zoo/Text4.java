@@ -1,25 +1,33 @@
 package animal.zoo;
 
+import java.io.File;
+
 public class Text4 {
-    // 靈魂四問之四：
-    // 如果try中遇到問題, 那try下面的其他代碼還會執行嗎
-
-    // 答：不會
+    // File練習4：File相關的API的練習題
+    // 需求：刪除一個多級文件夾
     public static void main(String[] args) {
-        // 1.創建數組
-        int[] arr = { 1, 2, 3, 4, 5 };
-
-        // 2.使用 try-catch 來處理異常
-        // 最後會打印：
-        // 沒有這個數組
-        try {
-            // 3. 判斷代碼是否有異常
-            // 該代碼有異常 跳到catch裡面
-            System.out.println(arr[5]);
-            // 上面代碼已經出現了異常 所以不會判斷到這裡
-            System.out.println("看看我這行執行了嗎");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("沒有這個數組");
+        File f1 = new File("/Users/f0nazj/Text/ccc");
+        DeleterFile(f1);
+    }
+    private static void DeleterFile(File dir){
+        // 1.判斷該路徑是否是文件夾
+        if(dir.isDirectory()){
+            // 2.如果是文件夾就獲取該路徑下的所有文件
+            File[] files = dir.listFiles();
+            // 3.判斷文件是否為空
+            if(files != null){
+                // 4. 如果不為空就遍歷每一個文件
+                for (File file : files) {
+                    // 5.把遍歷到的每一個文件回傳到方法中重新刪除
+                    DeleterFile(file);
+                }
+            }
+        }
+        // 6.最後把刪除的文件打印出來
+        if(dir.delete()){
+            System.out.println("刪除成功: " + dir.getAbsolutePath());
+        } else {
+            System.out.println("刪除失敗: " + dir.getAbsolutePath());
         }
     }
 }
