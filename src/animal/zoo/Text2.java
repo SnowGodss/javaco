@@ -1,37 +1,27 @@
 package animal.zoo;
 
-import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Text2 {
-    // File練習2：File相關的API的練習題
-    // 需求：定義一個方法找某一個文件夾中, 是否有以.mp3結尾的音樂
-    // (暫時不考慮子文件夾)
-    // /Users/f0nazj/Text/bbb
-    // /Users/f0nazj/Text/ccc
-    // /Users/f0nazj/Text/fff
-    // /Users/f0nazj/Text/ggg (放在這裡面 但沒有放在子文件夾中)
-
-    public static void main(String[] args) {
-        // 呼叫方法判斷是否mp3有在裡面
-        System.out.println(findMusic("/Users/f0nazj/Text/bbb"));
-        System.out.println(findMusic("/Users/f0nazj/Text/ccc"));
-        System.out.println(findMusic("/Users/f0nazj/Text/fff"));
-        System.out.println(findMusic("/Users/f0nazj/Text/ggg"));
-    }
-    public static Boolean findMusic(String path){
-        // 1.創建文件位置
-        File f1 = new File(path);
-        // 2.獲取文件夾中的每一個文件
-        String[] list = f1.list();
-        // 3.遍歷每一個文件
-        for (String s : list) {
-            // 判斷文件結尾是否是.mp3
-            if (s.endsWith(".mp3")){
-                // 如果是就返回true
-                return true;
-            }
-        }
-        // 如果都不是就返回false
-        return false;
+    // 字節輸入的細節：
+       // 1.創建字節輸出流對象
+            // 細節1：參數是字符串表示的路徑或者是File對象都是可以的
+            // 細節2：如果文件不存在會創建一個新的文件, 但是要保證父級路徑存在
+            // 細節3：如果文件已經存在，則會覆蓋原有的文件
+       // 2.寫出數據
+            // 細節：write方法的參數是整數, 但是實際寫到本地文件中的是整數在ASCII碼表中對應的字符
+            // '9'
+            // '7'
+       // 3.釋放資源
+            // 每次使用完疏之后都要釋放資源
+    public static void main(String[] args) throws IOException {
+        // 1.創建對象
+        FileOutputStream fos = new FileOutputStream("src/animal/zoo/a.txt");
+        // 2.寫出數據
+        fos.write('9');
+        fos.write('7');
+        // 3.釋放資源
+        fos.close();
     }
 }
