@@ -1,37 +1,61 @@
 package animal.zoo;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Text3 {
-    // File練習3：File相關的API的練習題
-    // 需求：找到電腦裡所有已.mp3結尾的音樂
-    // (暫時不考慮子文件夾)
-    // /Users/f0nazj/Text/bbb
-    // /Users/f0nazj/Text/ccc
-    // /Users/f0nazj/Text/fff
-    // /Users/f0nazj/Text/ggg
-    // /Users/f0nazj/Text/ggg/aaa
-    // /Users/f0nazj/Text/ggg/aaa/bbb (音樂放這裡)
-
-    public static void main(String[] args) {
-        // 1.創建查找位置 (暫定設在Text文件夾中)
-        File rootDir = new File("/Users/f0nazj/Text");
-        // 2.調用方法查找mp3文件
-        findMp3Files(rootDir);
-    }
-
-    private static void findMp3Files(File dir) {
-        // 3.遍歷文件夾中的每一個文件
-            for (File s : dir.listFiles()) {
-                // 如果是文件夾就繼續遍歷
-                if(s.isDirectory()){
-                    // 4.如果是文件夾就把該路徑重新遞回到方法中
-                    findMp3Files(s);
-                }else{
-                    // 5.如果是文件就判斷文件結尾是否是.mp3
-                    if (s.getName().endsWith(".mp3")){
-                        // 6.如果是就打印該文件的絕對路徑
-                        System.out.println(s.getAbsolutePath());
+    /*
+    * FileInPutStream一次讀多個字節
+    * 方法名稱。                        說明
+    * public int read()               一次讀一個字節
+    * public int read(byte[] buffer)  一次讀一個字節數組數據
+    */
+    public static void main(String[] args) throws Exception {
+            // 1.創建對象
+            // fis2 的數據檔案為mp4格式
+            FileInputStream fis2 = null;
+            FileOutputStream fos = null;
+            try {
+                fis2 = new FileInputStream("/Users/f0nazj/Downloads/Sequence 01_1.mp4");
+                // fos 為要拷貝的檔案位置
+                fos = new FileOutputStream("src/animal/zoo/1.mp4");
+                // 2.讀取數據
+                byte[] buffer = new byte[1024 * 1024 * 5];
+                // 一次讀取多個字節數據, 具體讀多少, 跟數組的長度有關
+                // 返回值：本次讀取到了多少個字節數據
+                int len;
+                // 讀取數據的時候, 會返回-1, 代表讀取完畢
+                while((len = fis2.read(buffer)) != -1){
+                    // 寫入數據
+                    // fos.write(buffer, 0, len);  // 寫入的數據長度是len
+                    // 0代表從數組的第0個位置開始寫入
+                    fos.write(buffer, 0, len);
+                }
+                System.out.println("拷貝完畢");
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }finally {
+                // 3.釋放資源
+                if(fos != null){
+                    try {
+                        fos.close();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+                if(fis2 != null){
+                    try {
+                        fis2.close();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
                 }
             }

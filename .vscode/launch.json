@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FileReaderText",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileReaderText",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "FileInPutStream",
+            "request": "launch",
+            "mainClass": "ithemia.text.FileInPutStream",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "LinkedHashMapTest",
+            "request": "launch",
+            "mainClass": "ithemia.text.LinkedHashMapTest",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
+            "name": "Ep5",
+            "request": "launch",
+            "mainClass": "school.programming.Ep5",
+            "projectName": "javacode_13f443b"
+        },
+        {
+            "type": "java",
             "name": "Ep4",
             "request": "launch",
             "mainClass": "school.programming.Ep4",

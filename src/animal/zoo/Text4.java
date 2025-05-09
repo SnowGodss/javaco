@@ -1,33 +1,42 @@
 package animal.zoo;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Text4 {
-    // File練習4：File相關的API的練習題
-    // 需求：刪除一個多級文件夾
-    public static void main(String[] args) {
-        File f1 = new File("/Users/f0nazj/Text/ccc");
-        DeleterFile(f1);
-    }
-    private static void DeleterFile(File dir){
-        // 1.判斷該路徑是否是文件夾
-        if(dir.isDirectory()){
-            // 2.如果是文件夾就獲取該路徑下的所有文件
-            File[] files = dir.listFiles();
-            // 3.判斷文件是否為空
-            if(files != null){
-                // 4. 如果不為空就遍歷每一個文件
-                for (File file : files) {
-                    // 5.把遍歷到的每一個文件回傳到方法中重新刪除
-                    DeleterFile(file);
+    /*
+    * FileInPutStream一次讀多個字節
+    * 方法名稱。                        說明
+    * public int read()               一次讀一個字節
+    * public int read(byte[] buffer)  一次讀一個字節數組數據
+    */
+    public static void main(String[] args) throws Exception {
+            // 1.創建對象
+            // fis2 的數據檔案為mp4格式
+            FileInputStream fis2 = new FileInputStream("/Users/f0nazj/Downloads/Sequence 01_1.mp4");
+            FileOutputStream fos = new FileOutputStream("src/animal/zoo/1.mp4");
+            try (fis2; fos) {
+                // 2.讀取數據
+                byte[] buffer = new byte[1024 * 1024 * 5];
+                // 一次讀取多個字節數據, 具體讀多少, 跟數組的長度有關
+                // 返回值：本次讀取到了多少個字節數據
+                int len;
+                // 讀取數據的時候, 會返回-1, 代表讀取完畢
+                while((len = fis2.read(buffer)) != -1){
+                    // 寫入數據
+                    // fos.write(buffer, 0, len);  // 寫入的數據長度是len
+                    // 0代表從數組的第0個位置開始寫入
+                    fos.write(buffer, 0, len);
                 }
+                System.out.println("拷貝完畢");
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
             }
         }
-        // 6.最後把刪除的文件打印出來
-        if(dir.delete()){
-            System.out.println("刪除成功: " + dir.getAbsolutePath());
-        } else {
-            System.out.println("刪除失敗: " + dir.getAbsolutePath());
-        }
     }
-}
